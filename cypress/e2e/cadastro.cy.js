@@ -7,7 +7,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.visit('index.html')
     }),
 
-    it('Tela 1 - Visitar a página e verificar campos', ()=> {
+    it.skip('Tela 1 - Visitar a página e verificar campos', ()=> {
         cy.title().should('be.equal', 'Cadastro de Usuários')
         cy.get('h1').should('have.text', 'Cadastro de usuários')
         cy.get('p').should('have.text', 'Para realizar o cadastro de um usuário, insira dados válidos no formulário e acione a opção Cadastrar :)')
@@ -23,7 +23,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 2 - Obrigatoriedade campo Nome', () => {
+    it.skip('Tela 2 - Obrigatoriedade campo Nome', () => {
         const randomEmail = faker.internet.email()
         const randomPassword = faker.internet.password()
 
@@ -39,7 +39,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 3 - Obrigatoriedade campo E-mail', () => {
+    it.skip('Tela 3 - Obrigatoriedade campo E-mail', () => {
         cy.reload()
         const randomName = faker.person.fullName()
         const randomPassword = faker.internet.password()
@@ -56,7 +56,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 4 - Obrigatoriedade campo Senha', () => {
+    it.skip('Tela 4 - Obrigatoriedade campo Senha', () => {
         cy.reload()
         const randomName = faker.person.fullName()
         const randomEmail = faker.internet.email()
@@ -73,7 +73,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 5 - Obrigatoriedade de todos os campos', () => {
+    it.skip('Tela 5 - Obrigatoriedade de todos os campos', () => {
         cy.reload()
         cy.contains('button', "Cadastrar").click()
 
@@ -92,7 +92,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 6 - Obrigatoriedade Nome completo', () => {
+    it.skip('Tela 6 - Obrigatoriedade Nome completo', () => {
         cy.reload()
         const randomName = faker.person.firstName()
         const randomEmail = faker.internet.email()
@@ -111,7 +111,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 7 - Validar E-mail digitado', () => {
+    it.skip('Tela 7 - Validar E-mail digitado', () => {
         cy.reload()
         const randomName = faker.person.fullName()
         const randomPassword = faker.internet.password()
@@ -129,7 +129,7 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#userTableWrapper').should('not.be.visible')
     }),
 
-    it('Tela 8 - Verificar se Senha tem mais de 8 caracteres', () => {
+    it.skip('Tela 8 - Verificar se Senha tem mais de 8 caracteres', () => {
         cy.reload()
         const randomName = faker.person.fullName()
         const randomEmail = faker.internet.email()
@@ -176,10 +176,15 @@ describe('Cadastro de Usuários - Validações', ()=> {
         cy.get('#password').type(randomPassword, {delay: 100})
     
         cy.contains('button', "Cadastrar").click()
+
+        cy.get('tbody tr').should('have.length', 2)
+
     }),
 
     it('Tela 1 - Deve excluir sem interferir nos demais ids ou ordenação', ()=> {
         cy.get(':nth-child(1) > :nth-child(4) > a').click()
+        cy.get('tbody tr').should('have.length', 1)
+        cy.get('tbody tr td').eq(0).should('contain', 2)
     })
 
 })

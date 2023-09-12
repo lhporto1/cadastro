@@ -62,12 +62,6 @@ function addUserToTable(name, email) {
     document.getElementById("userForm").reset();
     users.push({ name, email });
     document.getElementById("userTableWrapper").style.display = "block";
-    const successMessage = document.getElementById("successMessage");
-    successMessage.style.display = "block";
-
-    setTimeout(function () {
-        successMessage.style.display = "none";
-    }, 3000);
 }
 
 function deleteUser(row) {

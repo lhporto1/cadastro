@@ -66,12 +66,3 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
-
-#successMessage {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10px;
-}
