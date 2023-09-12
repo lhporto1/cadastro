@@ -1,0 +1,11 @@
+{
+  "name": "Cadastro_de_Usuarios",
+  "version": "1.0.0",
+  "description": "Teste QA - Cadastro de Usuários",
+  "main": "index.js",
+  "author": "Luciano Holanda Porto <lhporto1@stefanini.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.1.0"
+  }
+}
