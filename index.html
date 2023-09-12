@@ -15,7 +15,7 @@
             <h2>Formulário</h2>
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="name" placeholder="João da Silva">
+                <input type="text" id="name" data-test-id="name" name="name" placeholder="João da Silva">
                 <div class="error-message" id="nameError"></div>
             </div>
             <div class="form-group">
@@ -45,6 +45,7 @@
             </table>
         </div>
     </div>
+    <div id="successMessage" style="display: none;">Cadastro realizado com sucesso.</div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 let users = [];
+let userId = 1;
 
 function validateForm() {
     const name = document.getElementById("name").value.trim();
@@ -31,6 +32,7 @@ function validateForm() {
     }
 
     addUserToTable(name, email);
+
     document.getElementById("userTableWrapper").style.display = "block";
 }
 
@@ -41,8 +43,9 @@ function addUserToTable(name, email) {
     const nameCell = newRow.insertCell(1);
     const emailCell = newRow.insertCell(2);
     const actionsCell = newRow.insertCell(3);
+    const id = userId++;
 
-    idCell.textContent = table.rows.length - 1;
+    idCell.textContent = id;
     nameCell.textContent = name;
     emailCell.textContent = email;
 
@@ -57,6 +60,12 @@ function addUserToTable(name, email) {
     document.getElementById("userForm").reset();
     users.push({ name, email });
     document.getElementById("userTableWrapper").style.display = "block";
+    const successMessage = document.getElementById("successMessage");
+    successMessage.style.display = "block";
+
+    setTimeout(function () {
+        successMessage.style.display = "none";
+    }, 3000);
 }
 
 function deleteUser(row) {
