@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "Teste QA - Cadastro de Usuários",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
   "author": "Luciano Holanda Porto <lhporto1@stefanini.com>",
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "cypress": "^13.1.0"
   }
 }
