@@ -11,23 +11,25 @@ function validateForm() {
     document.getElementById("passwordError").innerHTML = "";
 
     if (name === "") {
-        document.getElementById("nameError").innerHTML = "O campo Nome é obrigatório";
+        document.getElementById("nameError").innerHTML = "O campo Nome é obrigatório.";
     } else if (name.split(" ").length < 2) {
         document.getElementById("nameError").innerHTML = "Por favor, insira um nome completo.";
     }
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!email.match(emailRegex)) {
-        document.getElementById("emailError").innerHTML = "Por favor, insira um e-mail válido";
+    if (email  === "") {
+        document.getElementById("emailError").innerHTML = "O campo E-mail é obrigatório.";
+    } else if (!email.match(emailRegex)) {
+        document.getElementById("emailError").innerHTML = "Por favor, insira um e-mail válido.";
     }
 
     if (password === "") {
-        document.getElementById("passwordError").innerHTML = "O campo Senha é obrigatório";
+        document.getElementById("passwordError").innerHTML = "O campo Senha é obrigatório.";
     } else if (password.length < 8) {
         document.getElementById("passwordError").innerHTML = "A senha deve conter pelo menos 8 caracteres.";
     }
 
-    if (name === "" || !email.match(emailRegex) || password === "" || password.length < 8) {
+    if (name === "" || !name.includes(" ") || !email.match(emailRegex) || password === "" || password.length < 8) {
         return;
     }
 
